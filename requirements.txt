@@ -1,1 +1,2 @@
 pyspark==3.5.1
+pre-commit==3.6.2
