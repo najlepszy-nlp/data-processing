@@ -7,6 +7,8 @@ from utils.gliner import process_row_using_gliner
 
 INPUT_DATA_PATH = "data/data.csv"
 
+logging.basicConfig(level=logging.INFO)
+
 _data: list[dict] = []
 
 
@@ -19,8 +21,8 @@ async def root():
 
 
 @app.get("/data")
-async def data():
-    return _data
+async def data(skip: int = 0, limit: int = 10):
+    return _data[skip : skip + limit]
 
 
 @app.post("/processing")
@@ -29,6 +31,7 @@ async def processing():
     model = GLiNER.from_pretrained("urchade/gliner_medium-v2.1")
     df = pd.read_csv(INPUT_DATA_PATH, delimiter=";")
 
+    global _data
     _data = []
 
     for i, row in df.iterrows():
