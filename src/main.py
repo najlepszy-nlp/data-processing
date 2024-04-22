@@ -5,7 +5,7 @@ import pandas as pd
 
 from utils.gliner import process_row_using_gliner
 
-INPUT_DATA_PATH = "data/data.csv"
+INPUT_DATA_PATH = "/mnt/data/data.csv"
 
 logging.basicConfig(level=logging.INFO)
 

@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.12
 
 WORKDIR /app
 
@@ -6,7 +6,6 @@ COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
-COPY data/ data/
 COPY src/ ./
 
-CMD [ "uvicorn", "main:app" ]
+CMD [ "python", "main.py" ]
