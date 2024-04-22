@@ -1,6 +1,6 @@
 # Data Processing Module
 
-### Running a local, dokerized Spark cluster
+### Running API localy with docker
 
 ```bash
 # Start
@@ -10,23 +10,18 @@ docker compose up -d
 docker compose down
 ```
 
-### Creating Spark Session in python
+### Endpoints
 
-Example of pyspark code running parallelized summing operation on the local Spark cluster.
+Swagger docs available at `http://localhost:8080/docs`.
 
-```python
-# Import the necessary modules
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import *
+- `GET http://localhost:8080/`
 
-# Create a SparkSession
-spark = SparkSession.builder \
-   .appName("My App") \
-   .getOrCreate()
+   Returns {"status": "up"} if API's healthy.
 
-rdd = spark.sparkContext.parallelize(range(1, 100))
+- `POST http://localhost:8080/processing`
+   
+   Perfoms the processing of input data
 
-print("THE SUM IS HERE: ", rdd.sum())
-# Stop the SparkSession
-spark.stop()
-```
+- `GET http://localhost:8080/data?skip=<skip>&limit=<limit>`
+
+   Returns processes data with pagination in json format. Needs the successful processing.
