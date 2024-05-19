@@ -6,3 +6,4 @@ gliner
 transformers[sentencepiece]
 fastapi
 uvicorn
+jsonlines
