@@ -49,7 +49,7 @@ async def processing():
     global _data
     _data = []
 
-    for i, row in data_df.head(n=30).iterrows():
+    for i, row in data_df.iterrows():
         logging.info(f"Processing row {i + 1}/{len(data_df)}")
         _data.append(process_row(row, ner, qa, cities_df))
 
