@@ -74,6 +74,7 @@ def process_row(row: pd.Series, ner: GLiNER, qa: Pipeline, cities_df: pd.DataFra
         "injuries": 0,
         "reason": "",
         "sequenceOfEvents": [],
+        "url": row["Url"],
     }
 
     cities_df["city"] = cities_df["city"].str.lower()
