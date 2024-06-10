@@ -7,3 +7,4 @@ transformers[sentencepiece]
 fastapi
 uvicorn
 jsonlines
+word2number
